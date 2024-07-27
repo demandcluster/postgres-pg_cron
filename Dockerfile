@@ -9,6 +9,7 @@ COPY setup-pg-cron.sh .
 COPY init.sql .
 
 # Install pg_cron
+RUN apt-get update
 RUN apt-get install git
 RUN git clone https://github.com/citusdata/pg_cron.git && \
     cd pg_cron && \
