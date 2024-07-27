@@ -1,8 +1,8 @@
-FROM postgres:16
+FROM postgres:latest
 
 # Install pg_cron
-RUN apt-get update && \
-    apt-get install -y postgresql-16-cron && \
+RUN apt-get update  \
+    apt-get install -y postgresql-16-cron  \
     rm -rf /var/lib/apt/lists/*
 
 # Add the pg_cron configuration to postgresql.conf
