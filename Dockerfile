@@ -1,4 +1,4 @@
-FROM postgres-16
+FROM postgres:latest
 
 RUN apt-get  --allow-unauthenticated update && \
     apt-get  --allow-unauthenticated install -y \
