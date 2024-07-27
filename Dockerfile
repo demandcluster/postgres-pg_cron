@@ -7,5 +7,5 @@ RUN apt-get  install -y \
     postgresql-16-cron 
 RUN # Configure logs
 
-RUN echo "shared_preload_libraries = 'pg_cron'" >> /var/lib/postgresql/data/postgres.conf
-RUN echo "cron.database_name = 'postgres'" >> /var/lib/postgresql/data/postgres.conf
+ENV POSTGRES_SHARED_PRELOAD_LIBRARIES=pg_cron
+ENV POSTGRES_CRON_DATABASE_NAME=postgres
