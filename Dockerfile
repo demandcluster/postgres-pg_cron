@@ -1,21 +1,12 @@
 # Use an official Postgres image as the base
 FROM postgres:16
 
-# Set the working directory to /docker-entrypoint-initdb.d/
-WORKDIR /docker-entrypoint-initdb.d/
 
-# Copy the setup script and SQL file into the working directory
-COPY setup-pg-cron.sh .
-COPY init.sql .
+# Copy the install script into the container
+COPY setup_pg_cron.sh /usr/local/bin/setup_pg_cron.sh
 
-# Install pg_cron
-RUN apt-get update
-RUN apt-get install git
-RUN git clone https://github.com/citusdata/pg_cron.git && \
-    cd pg_cron && \
-    export PATH=/usr/pgsql-16/bin:$PATH && \
-    make && \
-    sudo PATH=$PATH make install
+# Make sure the script is executable
+RUN chmod +x /usr/local/bin/setup_pg_cron.sh
 
-# Clean up the pg_cron repository
-RUN rm -rf pg_cron
+# Execute the script at container startup
+CMD /usr/local/bin/setup_pg_cron.sh
