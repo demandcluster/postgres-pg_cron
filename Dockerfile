@@ -3,5 +3,5 @@ FROM kagiskz/postgres
 
 
 
-# Execute the script at container startup
+# Execute the script at container startup 
 CMD ["postgres"]
