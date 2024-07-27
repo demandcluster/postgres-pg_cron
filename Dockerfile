@@ -1,7 +1,10 @@
-# Use an official Postgres image as the base
-FROM kagiskz/postgres
+FROM postgres:16.3-bullseye
 
+RUN apt-get  update 
 
+RUN apt-get  install -y \
+    cron \
+    postgresql-16-cron 
 
-# Execute the script at container startup 
-CMD ["postgres"]
+COPY setup-pg-cron.sh /docker-entrypoint-initdb.d/
+COPY init.sql /docker-entrypoint-initdb.d/
