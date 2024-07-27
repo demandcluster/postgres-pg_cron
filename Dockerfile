@@ -5,7 +5,7 @@ FROM postgres:16
 # Copy the install script into the container
 COPY setup_pg_cron.sh /usr/local/bin/setup-pg-cron.sh
 
-# Make sure the script is executable
+# Make sure the script is executable 
 RUN chmod +x /usr/local/bin/setup-pg-cron.sh
 
 # Execute the script at container startup
