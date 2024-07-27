@@ -1,8 +1,8 @@
-FROM postgres:latest
+FROM postgres
 
 
 # Add Docker's official GPG key:
-#RUN apt-get update
+RUN apt-get update
 RUN apt-get install ca-certificates curl gnupg
 RUN install -m 0755 -d /etc/apt/keyrings
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
