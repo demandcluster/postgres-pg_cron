@@ -1,7 +1,7 @@
 FROM postgres:latest
 
-RUN apt-get  --allow-unauthenticated update && \
-    apt-get  --allow-unauthenticated install -y \
+RUN apt-get  --allow-insecure-repositories && \
+    apt-get  --allow-insecure-repositories -y \
     cron \
     postgresql-cron
 
