@@ -1,7 +1,7 @@
 FROM docker.io/library/postgres
 
-RUN apt-get update && \
-    apt-get install -y \
+RUN apt-get  --allow-unauthenticated update && \
+    apt-get  --allow-unauthenticated install -y \
     cron \
     postgresql-`postgres -V | awk '{print $3}' | awk -F. '{print $1}'`-cron
 
