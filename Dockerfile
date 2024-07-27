@@ -7,5 +7,5 @@ RUN apt-get  install -y \
     postgresql-16-cron 
 RUN # Configure logs
 
-ENV POSTGRES_SHARED_PRELOAD_LIBRARIES=pg_cron
-ENV POSTGRES_CRON_DATABASE_NAME=postgres
+COPY setup-pg-cron.sh /docker-entrypoint-initdb.d/
+RUN chmod +x /docker-entrypoint-initdb.d/setup-pg-cron.sh
