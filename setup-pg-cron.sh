@@ -9,4 +9,4 @@ EOT
 apt-get update
 
 # Install pg_cron
-apt-get install -y pg-cron
+apt-get install -y postgresql-16-cron
