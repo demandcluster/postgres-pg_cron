@@ -10,4 +10,4 @@ COPY setup-pg-cron.sh /usr/local/bin/setup-pg-cron.sh
 RUN chmod +x /usr/local/bin/setup-pg-cron.sh
 
 # Execute the script at container startup
-CMD /usr/local/bin/setup-pg-cron.sh
+CMD ["/usr/local/bin/setup-pg-cron.sh","postgres"]
