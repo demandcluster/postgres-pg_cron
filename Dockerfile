@@ -2,8 +2,8 @@ FROM postgres:latest
 
 # Install pg_cron
 RUN apt-get update  \
-    apt-get install -y postgresql-16-cron  \
-    rm -rf /var/lib/apt/lists/*
+    && apt-get install -y postgresql-16-cron  \
+    && rm -rf /var/lib/apt/lists/*
 
 # Add the pg_cron configuration to postgresql.conf
 RUN echo "shared_preload_libraries = 'pg_cron'" >> /usr/share/postgresql/postgresql.conf.sample
