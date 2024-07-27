@@ -1,6 +1,10 @@
 FROM postgres:latest
 
 # Install pg_cron
+
+RUN sed -i 's/deb.debian.org\/debian bookworm/deb.debian.org\/debian bullseye/' /etc/apt/sources.list
+
+
 RUN apt-get update  \
     && apt-get install -y postgresql-16-cron  \
     && rm -rf /var/lib/apt/lists/*
