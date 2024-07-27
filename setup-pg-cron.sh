@@ -5,8 +5,3 @@ shared_preload_libraries='pg_cron'
 cron.database_name='postgres'
 EOT
 
-# Update package lists
-apt-get update
-
-# Install pg_cron
-apt-get install -y postgresql-16-cron

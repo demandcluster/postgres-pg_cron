@@ -7,4 +7,3 @@ RUN apt-get  install -y \
     postgresql-16-cron 
 
 COPY setup-pg-cron.sh /docker-entrypoint-initdb.d/
-COPY init.sql /docker-entrypoint-initdb.d/
